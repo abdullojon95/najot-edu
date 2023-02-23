@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Najot-edu.Api", "Najot-edu.Api\Najot-edu.Api.csproj", "{5B08FEB2-8B8E-4326-ABFF-95E34607EA02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Najot-edu.Api", "Najot-edu.Api\Najot-edu.Api.csproj", "{5B08FEB2-8B8E-4326-ABFF-95E34607EA02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NajotEdu.Domain", "NajotEdu.Domain\NajotEdu.Domain.csproj", "{96310A37-5B4D-4E71-A549-A669360AE2B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NajotEdu.Domain", "NajotEdu.Domain\NajotEdu.Domain.csproj", "{96310A37-5B4D-4E71-A549-A669360AE2B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NajotEdu.Infrastructure", "NajotEdu.Infrastructure\NajotEdu.Infrastructure.csproj", "{610F31CE-8F40-4EC0-94AC-571F6753424B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NajotEdu.Infrastructure", "NajotEdu.Infrastructure\NajotEdu.Infrastructure.csproj", "{610F31CE-8F40-4EC0-94AC-571F6753424B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NajotEdu.Application", "NajotEdu.Application\NajotEdu.Application.csproj", "{456A2D47-0960-4F3E-BA93-75E33D2AC149}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{610F31CE-8F40-4EC0-94AC-571F6753424B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{610F31CE-8F40-4EC0-94AC-571F6753424B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{610F31CE-8F40-4EC0-94AC-571F6753424B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{456A2D47-0960-4F3E-BA93-75E33D2AC149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{456A2D47-0960-4F3E-BA93-75E33D2AC149}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{456A2D47-0960-4F3E-BA93-75E33D2AC149}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{456A2D47-0960-4F3E-BA93-75E33D2AC149}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
