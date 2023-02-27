@@ -21,7 +21,7 @@ namespace NajotEdu.Infrastructure.Services
         public async Task<string> LoginAsync(string username, string password)
         {
             var user = await _dbContext.Users.FirstOrDefaultAsync(x => x.UserName == username);
-
+          
             if (user == null)
             {
                 throw new Exception("User not found");

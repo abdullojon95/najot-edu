@@ -17,7 +17,7 @@ namespace Najot_edu.Api.Controllers
             _studentService = studentService;
         }
 
-        [Authorize(Policy = "AdminActions")]
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(CreateStudentModel model)
         {
