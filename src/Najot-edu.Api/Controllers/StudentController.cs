@@ -9,6 +9,7 @@ namespace Najot_edu.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Policy ="AdminActions")]
     public class StudentController : ControllerBase
     {
         private readonly IStudentService _studentService;
@@ -17,7 +18,6 @@ namespace Najot_edu.Api.Controllers
             _studentService = studentService;
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(CreateStudentModel model)
         {
