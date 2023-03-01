@@ -1,12 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using NajotEdu.Application.Abstractions;
+using NajotEdu.Domain.Enums;
+using NajotEdu.Infrastructure.Abstractions;
 using NajotEdu.Infrastructure.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using NajotEdu.Infrastructure.Providers;
+using NajotEdu.Infrastructure.Services;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace NajotEdu.Infrastructure
 {
@@ -18,7 +21,37 @@ namespace NajotEdu.Infrastructure
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
 
-            return services;   
+            services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
+            services.AddScoped<ITokenService, JWTService>();
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IHashProvider, HashProvider>();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidAudience = configuration["JWT:ValidAudience"],
+                        ValidIssuer = configuration["JWT:ValidIssuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
+                    };
+                });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("AdminActions", policy =>
+                {
+                    policy.RequireClaim("Role", UserRole.Admin.ToString());
+                });
+            });
+
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+            return services;
         }
     }
 }
