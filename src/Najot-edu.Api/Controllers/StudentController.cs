@@ -9,7 +9,7 @@ namespace Najot_edu.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Policy ="AdminActions")]
+    //[Authorize(Policy ="AdminActions")]
     public class StudentController : ControllerBase
     {
         private readonly IStudentService _studentService;
