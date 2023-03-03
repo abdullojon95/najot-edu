@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NajotEdu.Application.Abstractions;
 using NajotEdu.Application.Models;
-using NajotEdu.Application.Services;
 
 namespace Najot_edu.Api.Controllers
 {

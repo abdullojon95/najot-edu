@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Najot_edu.Api.Models;
 using NajotEdu.Application.Abstractions;
 using NajotEdu.Infrastructure.Abstractions;
-using System.Collections;
 
 namespace Najot_edu.Api.Controllers
 {
@@ -14,7 +11,7 @@ namespace Najot_edu.Api.Controllers
     {
         private readonly IAuthService _authService;
         private readonly IHashProvider _hashProvider;
-        public AuthController(IAuthService authService,IHashProvider hashProvider)
+        public AuthController(IAuthService authService, IHashProvider hashProvider)
         {
             _authService = authService;
             _hashProvider = hashProvider;
@@ -23,7 +20,7 @@ namespace Najot_edu.Api.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> LoginAsync(LoginRequest request)
         {
-            var token = await _authService.LoginAsync(request.UserName,request.Password);
+            var token = await _authService.LoginAsync(request.UserName, request.Password);
 
             return Ok(token);
         }
