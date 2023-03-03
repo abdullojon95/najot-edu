@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace NajotEdu.Application.Models
+﻿namespace NajotEdu.Application.Models
 {
     public class StudentViewModel
     {

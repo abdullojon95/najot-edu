@@ -12,14 +12,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("V1",new OpenApiInfo()
+    options.SwaggerDoc("V1", new OpenApiInfo()
     {
-        Version= "V1",
-        Title="NajotEdu",
-        Description="Najot Descriptions"
+        Version = "V1",
+        Title = "NajotEdu",
+        Description = "Najot Descriptions"
     });
 
-    options.AddSecurityDefinition("Bearer",new OpenApiSecurityScheme()
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
         Scheme = "Bearer",
         BearerFormat = "JWT",
@@ -50,7 +50,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
-        options.SwaggerEndpoint("/swagger/V1/swagger.json","NajotEdu API");
+        options.SwaggerEndpoint("/swagger/V1/swagger.json", "NajotEdu API");
     });
 }
 

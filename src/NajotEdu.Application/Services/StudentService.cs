@@ -2,7 +2,6 @@
 using NajotEdu.Application.Abstractions;
 using NajotEdu.Application.Models;
 using NajotEdu.Domain.Entities;
-using NajotEdu.Domain.Enums;
 
 namespace NajotEdu.Application.Services
 {
