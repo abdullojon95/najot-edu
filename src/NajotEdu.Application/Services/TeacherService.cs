@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using NajotEdu.Application.Abstractions;
 using NajotEdu.Application.Models;
 using NajotEdu.Domain.Entities;
@@ -10,23 +11,29 @@ namespace NajotEdu.Application.Services
     {
         private readonly IApplicationDbContext _context;
         private readonly IHashProvider _hashProvider;
-        public TeacherService(IApplicationDbContext context, IHashProvider hashProvider)
+        private readonly IMapper _mapper;
+        public TeacherService(IApplicationDbContext context, IHashProvider hashProvider,IMapper mapper)
         {
             _context = context;
             _hashProvider = hashProvider;
+            _mapper = mapper;
         }
 
         public async Task CreateAsync(CreateTeacherModel model)
         {
-            var user = new User()
+            var entity = _mapper.Map<User>(model);
+            /*var user = new User()
             {
                 UserName = model.UserName,
                 PasswordHash = _hashProvider.GetHash(model.Password),
                 FullName = model.FullName,
                 Role = UserRole.Teacher
-            };
+            };*/
 
-            _context.Users.Add(user);
+            entity.PasswordHash = _hashProvider.GetHash(model.Password);
+            entity.Role = UserRole.Teacher;
+
+            _context.Users.Add(entity);
             await _context.SaveChangesAsync();
         }
 
@@ -44,26 +51,18 @@ namespace NajotEdu.Application.Services
 
         public async Task<List<TeacherViewModel>> GetAllAsync()
         {
-            return await _context.Users
+            var list = await _context.Users
                  .Where(x => x.Role == UserRole.Teacher)
-                 .Select(x => new TeacherViewModel()
-                 {
-                     Id = x.Id,
-                     FullName = x.FullName,
-                     UserName = x.UserName
-                 }).ToListAsync();
+                 .ToListAsync();
+
+            return _mapper.Map<List<TeacherViewModel>>(list);
         }
 
         public async Task<TeacherViewModel> GetByIdAsync(int id)
         {
             var entity = await _context.Users.FirstOrDefaultAsync(x => x.Id == id && x.Role == UserRole.Teacher);
-            return new TeacherViewModel()
-            {
-                Id = entity.Id,
-                UserName = entity.UserName,
-                FullName = entity.FullName
 
-            };
+            return _mapper.Map<TeacherViewModel>(entity);
         }
 
         public async Task UpdateAsync(UpdateTeacherModel model)

@@ -4,6 +4,7 @@ using NajotEdu.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
@@ -53,6 +54,9 @@ if (app.Environment.IsDevelopment())
         options.SwaggerEndpoint("/swagger/V1/swagger.json", "NajotEdu API");
     });
 }
+
+app.UseStaticFiles();
+app.UseDirectoryBrowser();
 
 app.UseHttpsRedirection();
 
