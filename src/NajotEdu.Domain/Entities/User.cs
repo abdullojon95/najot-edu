@@ -14,6 +14,7 @@ namespace NajotEdu.Domain.Entities
         public string PasswordHash { get; set; }
         public string FullName { get; set; }
         public UserRole Role { get; set; }
+        public string? PhotoPath { get; set; }
         public ICollection<Group> Groups { get; set; }
     }
 }

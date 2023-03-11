@@ -32,6 +32,22 @@ namespace NajotEdu.Application.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task<List<LessonViewModel>> GetLessonsAsync(int groupId)
+        {
+            var lessons = await _context.Lessons
+                .Where(x => x.GroupId == groupId)
+                .Select(x => new LessonViewModel()
+                {
+                    Id = x.Id,
+                    GroupId = x.GroupId,
+                    StartDateTime = x.StartDateTime,
+                    EndDateTime = x.EndDateTime
+                })
+                .ToListAsync();
+
+            return lessons;
+        }
+
         public async Task AddStudentAsync(AddStudentGroupModel model, int groupId)
         {
             if (!await _context.Students.AnyAsync(x => x.Id == model.StudentId))
