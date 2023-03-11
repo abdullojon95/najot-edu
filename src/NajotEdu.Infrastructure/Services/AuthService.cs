@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NajotEdu.Application.Abstractions;
 using NajotEdu.Infrastructure.Abstractions;
 using NajotEdu.Infrastructure.Persistence;
 

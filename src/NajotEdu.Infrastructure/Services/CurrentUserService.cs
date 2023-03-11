@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Http;
-using NajotEdu.Application.Abstractions;
 using System.Security.Claims;
 
 namespace NajotEdu.Infrastructure.Services

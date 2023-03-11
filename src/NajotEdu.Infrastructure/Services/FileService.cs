@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using NajotEdu.Application.Abstractions;
 
 namespace NajotEdu.Infrastructure.Services
 {
@@ -16,7 +15,7 @@ namespace NajotEdu.Infrastructure.Services
         {
             var fileNameItems = formFile.FileName.Split(".");
             var extension = fileNameItems[fileNameItems.Length - 1];
-            var fileName = formFile.FileName.Remove(formFile.FileName.IndexOf(extension, StringComparison.InvariantCultureIgnoreCase)-1);
+            var fileName = formFile.FileName.Remove(formFile.FileName.IndexOf(extension, StringComparison.InvariantCultureIgnoreCase) - 1);
 
             var path = $"/Files/{fileName}-{Guid.NewGuid()}.{extension}";
 

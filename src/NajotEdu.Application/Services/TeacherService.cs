@@ -12,7 +12,7 @@ namespace NajotEdu.Application.Services
         private readonly IApplicationDbContext _context;
         private readonly IHashProvider _hashProvider;
         private readonly IMapper _mapper;
-        public TeacherService(IApplicationDbContext context, IHashProvider hashProvider,IMapper mapper)
+        public TeacherService(IApplicationDbContext context, IHashProvider hashProvider, IMapper mapper)
         {
             _context = context;
             _hashProvider = hashProvider;
@@ -22,16 +22,6 @@ namespace NajotEdu.Application.Services
         public async Task CreateAsync(CreateTeacherModel model)
         {
             var entity = _mapper.Map<User>(model);
-            /*var user = new User()
-            {
-                UserName = model.UserName,
-                PasswordHash = _hashProvider.GetHash(model.Password),
-                FullName = model.FullName,
-                Role = UserRole.Teacher
-            };*/
-
-            entity.PasswordHash = _hashProvider.GetHash(model.Password);
-            entity.Role = UserRole.Teacher;
 
             _context.Users.Add(entity);
             await _context.SaveChangesAsync();
@@ -73,9 +63,7 @@ namespace NajotEdu.Application.Services
                 throw new Exception("Not found");
             }
 
-            entity.UserName = model.UserName ?? entity.UserName;
-            entity.FullName = model.FullName ?? entity.FullName;
-            entity.PasswordHash = model.Password == null ? entity.PasswordHash : _hashProvider.GetHash(model.Password);
+            entity = _mapper.Map(model, entity);
 
             _context.Users.Add(entity);
             await _context.SaveChangesAsync();

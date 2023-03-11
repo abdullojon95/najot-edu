@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NajotEdu.Application.Abstractions;
 
 namespace Najot_edu.Api.Controllers
 {

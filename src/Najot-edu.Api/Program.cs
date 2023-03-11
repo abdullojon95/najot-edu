@@ -1,6 +1,4 @@
 using Microsoft.OpenApi.Models;
-using NajotEdu.Application;
-using NajotEdu.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 

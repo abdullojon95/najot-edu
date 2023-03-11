@@ -12,7 +12,7 @@ namespace NajotEdu.Application
             services.AddScoped<IStudentService, StudentService>();
             services.AddScoped<IGroupService, GroupService>();
             services.AddScoped<IAttendanceService, AttendanceService>();
-            services.AddScoped<IProfileService,ProfileService>();
+            services.AddScoped<IProfileService, ProfileService>();
 
             return services;
         }
