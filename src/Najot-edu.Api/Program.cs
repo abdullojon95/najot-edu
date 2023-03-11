@@ -56,6 +56,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseStaticFiles();
+app.UseDirectoryBrowser();
 
 app.UseHttpsRedirection();
 
