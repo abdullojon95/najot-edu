@@ -6,7 +6,6 @@ namespace Najot_edu.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
     public class GroupController : ControllerBase
     {
         private readonly IGroupService _groupService;
@@ -37,8 +36,15 @@ namespace Najot_edu.Api.Controllers
             return Ok(groups);
         }
 
+        [HttpGet("{groupId}/lessons")]
+        public async Task<IActionResult> GetLessons(int groupId)
+        {
+            var lessons = await _groupService.GetLessonsAsync(groupId);
+            return Ok(lessons);
+        }
+
         [HttpPut]
-        public async Task<IActionResult> Create(UpdateGroupModel model)
+        public async Task<IActionResult> Update(UpdateGroupModel model)
         {
             await _groupService.UpdateAsync(model);
 

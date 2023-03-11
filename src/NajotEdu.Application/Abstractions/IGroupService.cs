@@ -6,5 +6,6 @@ namespace NajotEdu.Application.Abstractions
     {
         Task AddStudentAsync(AddStudentGroupModel model, int groupId);
         Task RemoveStudentAsync(int studentId, int groupId);
+        Task<List<LessonViewModel>> GetLessonsAsync(int groupId);
     }
 }
