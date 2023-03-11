@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NajotEdu.Application.Abstractions;
+using NajotEdu.Domain.Entities;
 using NajotEdu.Infrastructure.Persistence.EntityTypeConfigurations;
 
 namespace NajotEdu.Infrastructure.Persistence

@@ -1,4 +1,6 @@
-﻿namespace NajotEdu.Application.Abstractions
+﻿using Microsoft.AspNetCore.Http;
+
+namespace NajotEdu.Application.Abstractions
 {
     public interface IFileService
     {

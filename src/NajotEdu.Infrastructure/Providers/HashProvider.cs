@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using NajotEdu.Application.Abstractions;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace NajotEdu.Infrastructure.Providers

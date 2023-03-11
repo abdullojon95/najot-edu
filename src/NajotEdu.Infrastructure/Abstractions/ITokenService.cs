@@ -1,4 +1,6 @@
-﻿namespace NajotEdu.Infrastructure.Abstractions
+﻿using NajotEdu.Domain.Entities;
+
+namespace NajotEdu.Infrastructure.Abstractions
 {
     public interface ITokenService
     {

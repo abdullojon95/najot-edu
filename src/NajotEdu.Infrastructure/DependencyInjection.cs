@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using NajotEdu.Application.Abstractions;
+using NajotEdu.Domain.Enums;
 using NajotEdu.Infrastructure.Abstractions;
 using NajotEdu.Infrastructure.Persistence;
 using NajotEdu.Infrastructure.Providers;

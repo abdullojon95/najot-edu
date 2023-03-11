@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using NajotEdu.Application.Abstractions;
 
 namespace NajotEdu.Infrastructure.Services
 {
