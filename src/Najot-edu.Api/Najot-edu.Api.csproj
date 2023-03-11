@@ -19,4 +19,10 @@
     <ProjectReference Include="..\NajotEdu.Infrastructure\NajotEdu.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+    <Folder Include="wwwrootF\Files\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>
