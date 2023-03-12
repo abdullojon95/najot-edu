@@ -15,6 +15,7 @@ namespace NajotEdu.Application
             services.AddScoped<IGroupService, GroupService>();
             services.AddScoped<IAttendanceService, AttendanceService>();
             services.AddScoped<IProfileService, ProfileService>();
+            services.AddHostedService<LessonStatusCheckService>();
 
             return services;
         }

@@ -8,7 +8,7 @@ namespace NajotEdu.Infrastructure.Persistence.EntityTypeConfigurations
     {
         public void Configure(EntityTypeBuilder<Group> builder)
         {
-            builder.HasKey(x => x);
+            builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Name)
                 .HasMaxLength(50)
